@@ -37,6 +37,7 @@ export default async function handler(req, res) {
         description: bugReportLabelDesc,
         color: bugReportLabelColour,
       });
+    }
 
     // create issue
     const x = await octokit.request('POST /repos/{owner}/{repo}/issues', {
@@ -51,4 +52,4 @@ export default async function handler(req, res) {
 
     res.status(200).json({message: "success!"})
   } 
-}
+
