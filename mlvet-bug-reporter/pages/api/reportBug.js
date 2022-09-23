@@ -2,8 +2,8 @@ const { Octokit } = require("@octokit/rest");
 
 export default async function handler(req, res) {
   const authToken = process.env.AUTH_TOKEN;
-  const repoOwnerUsername = 'LiamTodd';
-  const repoName = 'shaping_connections_tool_1';
+  const repoOwnerUsername = 'chloebrett';
+  const repoName = 'mlvet';
   const bugReportLabelName = 'user-reported bug';
   const bugReportLabelDesc = 'issues with this label originate from in-app user feedback'; 
   const bugReportLabelColour = 'f59e42';
