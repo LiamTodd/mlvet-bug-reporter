@@ -1,4 +1,4 @@
-import { Octokit } from '@octokit/rest';
+const { Octokit } = require("@octokit/rest");
 
 export default async function handler(req, res) {
   const authToken = process.env.AUTH_TOKEN;
