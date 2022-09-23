@@ -8,13 +8,11 @@ export default async function handler(req, res) {
   const bugReportLabelDesc = 'issues with this label originate from in-app user feedback'; 
   const bugReportLabelColour = 'f59e42';
 
-  console.log("entered")
 
   const octokit = new Octokit({
     auth: authToken,
   });
 
-  console.log(octokit)
 
     // get labels
     const labelResponse = await octokit.request(
