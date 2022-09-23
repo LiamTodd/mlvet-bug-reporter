@@ -39,16 +39,16 @@ export default async function handler(req, res) {
       });
     }
 
+    const body = JSON.parse(req.body)
+
     // create issue
     const x = await octokit.request('POST /repos/{owner}/{repo}/issues', {
       owner: repoOwnerUsername,
       repo: repoName,
-      title: "this is a test",
-      body: "this is also a test",
+      title: body.title,
+      body: body.description,
       labels: [bugReportLabelName],
     });
-
-    console.log('52', x)
 
     res.status(200).json({message: "success!"})
   } 
