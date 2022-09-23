@@ -39,7 +39,8 @@ export default async function handler(req, res) {
       });
     }
 
-    const body = JSON.parse(req.body)
+    // const body = JSON.parse(req.body)
+    console.log(req.body)
 
     // create issue
     const x = await octokit.request('POST /repos/{owner}/{repo}/issues', {
