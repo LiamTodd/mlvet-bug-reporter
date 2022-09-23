@@ -1,5 +1,5 @@
 {
-  "name": "mlvet-bug-logger",
+  "name": "mlvet-bug-reporter",
   "version": "0.1.0",
   "private": true,
   "scripts": {
