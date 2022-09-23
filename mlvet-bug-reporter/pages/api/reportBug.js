@@ -14,29 +14,29 @@ export default async function handler(req, res) {
   });
 
 
-    // get labels
-    const labelResponse = await octokit.request(
-      'GET /repos/{owner}/{repo}/labels',
-      {
-        owner: repoOwnerUsername,
-        repo: repoName,
-      }
-    );
+    // // get labels
+    // const labelResponse = await octokit.request(
+    //   'GET /repos/{owner}/{repo}/labels',
+    //   {
+    //     owner: repoOwnerUsername,
+    //     repo: repoName,
+    //   }
+    // );
 
-    // check if bug report label exists
-    const containsBugReportLabel = labelResponse.data
-      .map((label) => label.name)
-      .includes(bugReportLabelName);
+    // // check if bug report label exists
+    // const containsBugReportLabel = labelResponse.data
+    //   .map((label) => label.name)
+    //   .includes(bugReportLabelName);
 
-    // if not, create it
-    if (!containsBugReportLabel) {
-      await octokit.request('POST /repos/{owner}/{repo}/labels', {
-        owner: repoOwnerUsername,
-        repo: repoName,
-        name: bugReportLabelName,
-        description: bugReportLabelDesc,
-        color: bugReportLabelColour,
-      });
+    // // if not, create it
+    // if (!containsBugReportLabel) {
+    //   await octokit.request('POST /repos/{owner}/{repo}/labels', {
+    //     owner: repoOwnerUsername,
+    //     repo: repoName,
+    //     name: bugReportLabelName,
+    //     description: bugReportLabelDesc,
+    //     color: bugReportLabelColour,
+    //   });
 
     // create issue
     const x = await octokit.request('POST /repos/{owner}/{repo}/issues', {
