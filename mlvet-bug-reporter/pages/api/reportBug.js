@@ -25,14 +25,10 @@ export default async function handler(req, res) {
       }
     );
 
-    console.log(labelResponse)
-
     // check if bug report label exists
     const containsBugReportLabel = labelResponse.data
       .map((label) => label.name)
       .includes(bugReportLabelName);
-
-    console.log(containsBugReportLabel)
 
     // if not, create it
     if (!containsBugReportLabel) {
@@ -53,7 +49,7 @@ export default async function handler(req, res) {
       labels: [bugReportLabelName],
     });
 
-    console.log(x)
+    console.log('52', x)
 
     res.status(200).json({message: "success!"})
   } 
