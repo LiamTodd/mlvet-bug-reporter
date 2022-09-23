@@ -8,9 +8,13 @@ export default async function handler(req, res) {
   const bugReportLabelDesc = 'issues with this label originate from in-app user feedback'; 
   const bugReportLabelColour = 'f59e42';
 
+  console.log("entered")
+
   const octokit = new Octokit({
     auth: authToken,
   });
+
+  console.log(octokit)
 
     // get labels
     const labelResponse = await octokit.request(
@@ -21,10 +25,14 @@ export default async function handler(req, res) {
       }
     );
 
+    console.log(labelResponse)
+
     // check if bug report label exists
     const containsBugReportLabel = labelResponse.data
       .map((label) => label.name)
       .includes(bugReportLabelName);
+
+    console.log(containsBugReportLabel)
 
     // if not, create it
     if (!containsBugReportLabel) {
@@ -37,7 +45,7 @@ export default async function handler(req, res) {
       });
 
     // create issue
-    await octokit.request('POST /repos/{owner}/{repo}/issues', {
+    const x = await octokit.request('POST /repos/{owner}/{repo}/issues', {
       owner: repoOwnerUsername,
       repo: repoName,
       title,
@@ -45,8 +53,9 @@ export default async function handler(req, res) {
       labels: [bugReportLabelName],
     });
 
+    console.log(x)
+
     res.status(200).json({message: "success!"})
-    return;
   } 
 
 }
