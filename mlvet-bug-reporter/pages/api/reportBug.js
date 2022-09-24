@@ -46,9 +46,10 @@ export default async function handler(req, res) {
       body: req.body.description,
       labels: [bugReportLabelName],
     });
-    res.status(200).send({ message: "success!" })
+    res.status(200).json({message: 'success'})
   }catch(e){
-    res.status(500).send({ error: 'something went wrong' })
+    console.log('line 51')
+    res.status(500).json({message: 'something went wrong'})
   }
   
 }
