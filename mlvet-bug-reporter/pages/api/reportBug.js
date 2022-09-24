@@ -48,7 +48,7 @@ export default async function handler(req, res) {
     });
     res.status(200).json({message: 'success'})
   }catch(e){
-    console.log('line 51')
+    console.log('something went wrong')
     res.status(500).json({message: 'something went wrong'})
   }
   
