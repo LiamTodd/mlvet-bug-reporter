@@ -2,7 +2,7 @@ const { Octokit } = require("@octokit/rest");
 
 export default async function handler(req, res) {
   const authToken = process.env.AUTH_TOKEN;
-  const repoOwnerUsername = 'chloebrett';
+  const repoOwnerUsername = 'MLVETDevelopers';
   const repoName = 'mlvet';
   const bugReportLabelName = 'user-reported bug';
   const bugReportLabelDesc = 'issues with this label originate from in-app user feedback';
